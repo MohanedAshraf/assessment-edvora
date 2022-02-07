@@ -4,7 +4,26 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'edvora-gray': '#292929',
+        'edvora-light-gray': '#939393',
+        'edvora-dark-gray': '#131313',
+      },
+    },
+    fontFamily: {
+      body: ['Inter'],
+    },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          width: '100%',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        },
+      })
+    },
+  ],
 }
