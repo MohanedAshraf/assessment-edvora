@@ -4,8 +4,8 @@ export default function Filter() {
   return (
     <>
       <form>
-        <div className="flex items-center justify-center h-screen">
-          <div className="rounded-[24px] bg-edvora-dark-gray px-5 py-7">
+        <div className="flex items-center justify-center w-60">
+          <div className="rounded-[24px] bg-edvora-dark-gray px-8 py-7 pb-10">
             <h1 className="text-lg text-edvora-light-gray">Filters</h1>
             <hr className="border-edvora-light-gray" />
             <div className="mt-8 space-y-4 ">

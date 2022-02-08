@@ -1,42 +1,31 @@
 // @ts-nocheck
-import Carousel from 'react-multi-carousel'
-import 'react-multi-carousel/lib/styles.css'
 import ProductCard from './ProductCard'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4.5,
-    paritialVisibilityGutter: 60,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    paritialVisibilityGutter: 50,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    paritialVisibilityGutter: 30,
-  },
-}
-
-export default function SimpleCarousel({ deviceType }) {
+export default function SimpleCarousel({ productName }) {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 200,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  }
   return (
-    <Carousel
-      ssr
-      partialVisbile
-      deviceType={deviceType}
-      responsive={responsive}
-    >
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-    </Carousel>
+    <>
+      <h2 className="mt-8 text-2xl text-gray-200">Product Name</h2>
+      <hr className="border-gray-200" />
+      <div className="mt-4 rounded-2xl bg-edvora-dark-gray">
+        <Slider {...settings}>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </Slider>
+      </div>
+    </>
   )
 }
