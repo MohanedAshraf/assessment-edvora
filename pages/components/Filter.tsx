@@ -5,18 +5,13 @@ export default function Filter() {
     <>
       <form>
         <div className="flex items-center justify-center h-screen">
-          <div className="max-w-lg rounded-[24px] bg-edvora-dark-gray px-10 py-6">
+          <div className="rounded-[24px] bg-edvora-dark-gray px-5 py-7">
             <h1 className="text-lg text-edvora-light-gray">Filters</h1>
             <hr className="border-edvora-light-gray" />
-            <div className="mt-6 space-y-4">
-              <div className="w-full">
-                <input
-                  type="text"
-                  placeholder="fullname"
-                  className="px-4 py-2 bg-gray-50"
-                />
-              </div>
-              <DropDown />
+            <div className="mt-8 space-y-4 ">
+              <DropDown optionName={'Products'} idx={'z-20'} />
+              <DropDown optionName={'State'} idx={'z-10'} />
+              <DropDown optionName={'City'} idx={'z-0'} />
             </div>
           </div>
         </div>

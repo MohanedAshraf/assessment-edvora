@@ -5,14 +5,14 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example({ optionName, idx }: any) {
   return (
-    <Menu as="div" className="relative inline-block w-full text-left">
+    <Menu as="div" className={`relative ${idx} inline-block w-full text-left`}>
       <div>
-        <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-          Options
+        <Menu.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-gray-200 rounded-md shadow-sm bg-edvora-gray hover:bg-edvora-light-gray focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+          {optionName}
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5 ml-2 -mr-1 text-edvora-dark-gray "
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -37,14 +37,16 @@ export default function Example() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg bg-edvora-gray ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             <Menu.Item>
               {({ active }: any) => (
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active
+                      ? 'bg-edvora-light-gray text-gray-900'
+                      : 'text-gray-200',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -57,7 +59,9 @@ export default function Example() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active
+                      ? 'bg-edvora-light-gray text-gray-900'
+                      : 'text-gray-200',
                     'block px-4 py-2 text-sm'
                   )}
                 >

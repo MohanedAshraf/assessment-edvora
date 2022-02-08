@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Edvora</title>
       </Head>
-      <div className="container bg-edvora-gray font-body ">
+      <div className=" bg-edvora-gray font-body">
         <Filter></Filter>
       </div>
     </>
