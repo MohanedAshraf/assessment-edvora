@@ -1,11 +1,15 @@
 //@ts-nocheck
+import { useEffect } from 'react'
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 export default function ListBox({ optionName, data, idx }) {
   const [selected, setSelected] = useState(optionName)
-  const [choice, setChoice] = useState(data)
+  const [choice, setChoice] = useState([])
+  useEffect(() => {
+    setChoice(data)
+  }, [data])
 
   return (
     <div className={`inline-block ${idx} relative w-full text-left`}>

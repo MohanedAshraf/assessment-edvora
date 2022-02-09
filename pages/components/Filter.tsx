@@ -1,7 +1,7 @@
+// @ts-nocheck
 import ListBox from './ListBox'
 
-const choice = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']
-export default function Filter() {
+export default function Filter({ products, state, city }) {
   return (
     <>
       <form>
@@ -10,21 +10,9 @@ export default function Filter() {
             <h1 className="text-lg text-edvora-light-gray">Filters</h1>
             <hr className="border-edvora-light-gray" />
             <div className="mt-8 space-y-4 ">
-              <ListBox
-                optionName={'Products'}
-                data={['Products', ...choice]}
-                idx={'z-20'}
-              />
-              <ListBox
-                optionName={'State'}
-                data={['State', ...choice]}
-                idx={'z-10'}
-              />
-              <ListBox
-                optionName={'City'}
-                data={['City', ...choice]}
-                idx={'z-0'}
-              />
+              <ListBox optionName={'Products'} data={products} idx={'z-20'} />
+              <ListBox optionName={'State'} data={state} idx={'z-10'} />
+              <ListBox optionName={'City'} data={city} idx={'z-0'} />
             </div>
           </div>
         </div>
