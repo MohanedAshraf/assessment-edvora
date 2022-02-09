@@ -45,9 +45,6 @@ export default function Home() {
       <Head>
         <title>Edvora</title>
       </Head>
-      {console.log('data', data)}
-      {console.log('filtered', filteredData)}
-      {console.log('products', productsArrs)}
 
       <div className="min-h-screen bg-edvora-gray">
         <div className="container h-max font-body">

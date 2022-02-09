@@ -17,6 +17,10 @@ export default function ListBox({ optionName, data, idx, callback }) {
   useEffect(() => {
     callback(selected)
   }, [selected])
+  // whenever optionName change it's going to change selected item
+  useEffect(() => {
+    setSelected(optionName)
+  }, [optionName])
   return (
     <div className={`inline-block ${idx} relative w-full text-left`}>
       <Listbox value={selected} onChange={setSelected}>

@@ -112,9 +112,12 @@ export default function Filter({ data, filteredDataCallback }) {
   // callbacks methods to get data from child components
   const productsCallback = (childData) => {
     setProductsOption(childData)
+    setStateOption('State')
+    setCityOption('City')
   }
   const stateCallback = (childData) => {
     setStateOption(childData)
+    setCityOption('City')
   }
   const cityCallback = (childData) => {
     setCityOption(childData)
@@ -128,19 +131,19 @@ export default function Filter({ data, filteredDataCallback }) {
             <hr className="border-edvora-light-gray" />
             <div className="mt-8 space-y-4 ">
               <ListBox
-                optionName={'Products'}
+                optionName={productsOption}
                 data={['Products', ...getProductsList()]}
                 idx={'z-20'}
                 callback={productsCallback}
               />
               <ListBox
-                optionName={'State'}
+                optionName={stateOption}
                 data={['State', ...getStateList()]}
                 idx={'z-10'}
                 callback={stateCallback}
               />
               <ListBox
-                optionName={'City'}
+                optionName={cityOption}
                 data={['City', ...getCityList()]}
                 idx={'z-0'}
                 callback={cityCallback}
