@@ -18,7 +18,7 @@ export default function Filter({ data, filteredDataCallback }) {
     setRawData(data)
   }, [data])
 
-  // pass filitered data to the parent whenever it changed
+  // pass filtered data to the parent whenever it changed
   useEffect(() => {
     filteredDataCallback(filteredData)
   }, [filteredData])

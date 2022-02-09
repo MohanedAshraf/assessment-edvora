@@ -7,7 +7,7 @@ import SimpleCarousel from './components/SimpleCarousel'
 
 export default function Home() {
   const [data, setData] = useState([])
-  const [filiteredData, setFiliteredData] = useState([])
+  const [filteredData, setFilteredData] = useState([])
   const [productsArrs, setProductsArrs] = useState(null)
   // fetch api data when components are mounted
   useEffect(() => {
@@ -16,24 +16,24 @@ export default function Home() {
       .then((data) => setData(data))
   }, [])
 
-  // call separateProductData whenever filiteredData changed
+  // call separateProductData whenever filteredData changed
   useEffect(() => {
-    setProductsArrs(separateProductData(filiteredData))
-  }, [filiteredData])
+    setProductsArrs(separateProductData(filteredData))
+  }, [filteredData])
 
-  // callback to take filiteredData from filter component as child ->  parent
+  // callback to take filteredData from filter component as child ->  parent
   const filteredDataCallback = (childData) => {
-    setFiliteredData(childData)
+    setFilteredData(childData)
   }
 
-  // separate filiteredData that comes from filter component into Array of arrays
+  // separate filteredData that comes from filter component into Array of arrays
   const separateProductData = () => {
     const productNames = [
-      ...new Set(filiteredData.map((product) => product['product_name'])),
+      ...new Set(filteredData.map((product) => product['product_name'])),
     ]
     let products = []
     productNames.forEach((name) => {
-      const elements = filiteredData.filter(
+      const elements = filteredData.filter(
         (product) => name === product['product_name']
       )
       products.push(elements)
@@ -46,7 +46,7 @@ export default function Home() {
         <title>Edvora</title>
       </Head>
       {console.log('data', data)}
-      {console.log('filitered', filiteredData)}
+      {console.log('filtered', filteredData)}
       {console.log('products', productsArrs)}
 
       <div className=" bg-edvora-gray">
