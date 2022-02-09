@@ -15,12 +15,20 @@ export default function SimpleCarousel({ productName, products }) {
   return (
     <>
       <h2 className="mt-8 text-2xl text-gray-200">{productName}</h2>
-      <hr className="mt-2 border-gray-200" />
-      <div className="mt-4 rounded-2xl bg-edvora-dark-gray">
+      <hr className="mt-1 border-gray-300" />
+      <div className="mt-4  rounded-2xl bg-edvora-dark-gray">
         <Slider {...settings}>
           {products &&
             products.map(
-              ({ product_name, discription, image, price, date, address }) => {
+              ({
+                product_name,
+                discription,
+                image,
+                price,
+                date,
+                address,
+                brand_name,
+              }) => {
                 return (
                   <ProductCard
                     productName={product_name}
@@ -29,6 +37,7 @@ export default function SimpleCarousel({ productName, products }) {
                     price={price}
                     date={date}
                     address={address}
+                    brandName={brand_name}
                   />
                 )
               }

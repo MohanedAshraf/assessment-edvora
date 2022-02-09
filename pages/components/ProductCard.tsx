@@ -1,30 +1,41 @@
-export default function ProductCard() {
+// @ts-nocheck
+export default function ProductCard({
+  productName,
+  description,
+  image,
+  price,
+  date,
+  address,
+  brandName,
+}) {
   return (
     <>
-      <div className="flex flex-col items-center justify-center py-5 ">
-        <div className="flex flex-col max-w-sm p-3 rounded-xl bg-edvora-gray">
-          <div className="flex items-start ">
+      <div className="flex py-5 ml-6">
+        <div className="flex flex-col py-4 pl-3 w-72 rounded-xl bg-edvora-gray">
+          <div className="flex flex-row items-start ">
             <img
-              className="w-24 h-24 mb-3 rounded-lg shadow-lg "
-              src="https://images.unsplash.com/photo-1512054502232-10a0a035d672?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80"
+              className="w-20 h-20 mb-3 rounded-lg "
+              src={image}
               alt="product"
             />
-            <div className="p-2 ml-5">
-              <h1 className="text-gray-200 text-md"> Product Name </h1>
+            <div className="ml-4">
+              <h1 className="text-gray-200 text-md"> {productName} </h1>
               <h3 className="mt-2 text-xs text-edvora-light-gray ">
-                Brand Name
+                {brandName}
               </h3>
-              <p className="mt-4 text-xs text-gray-200">$ 29.99</p>
+              <p className="mt-4 text-xs text-gray-200">$ {price}</p>
             </div>
           </div>
-          <div className="flex justify-between mt-2">
-            <h3 className="text-xs text-edvora-light-gray">Location</h3>
-            <h3 className="text-xs mr-7 text-edvora-light-gray">
-              Date:10:12:2021
+          <div className="flex flex-row mt-2">
+            <h3 className="block text-xs text-edvora-light-gray">
+              {address.state}
+            </h3>
+            <h3 className="block ml-4 text-xs text-edvora-light-gray">
+              Date:{new Date(date).toLocaleDateString()}
             </h3>
           </div>
-          <div className="mt-2 text-xs text-edvora-light-gray">
-            Description of the product/item
+          <div className="self-start mt-2 ml-4 text-xs text-edvora-light-gray">
+            {description}
           </div>
         </div>
       </div>

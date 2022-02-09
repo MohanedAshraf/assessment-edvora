@@ -49,7 +49,7 @@ export default function Home() {
       {console.log('filtered', filteredData)}
       {console.log('products', productsArrs)}
 
-      <div className=" bg-edvora-gray">
+      <div className="min-h-screen bg-edvora-gray">
         <div className="container h-max font-body">
           <div className="flex flex-row pt-10">
             <div className="items-start mr-10 basis-1/4">
