@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react'
 import ListBox from './ListBox'
 
-export default function Filter({ data }) {
+export default function Filter({ data, filteredDataCallback }) {
   // user choice
   const [productsOption, setProductsOption] = useState('Products')
   const [stateOption, setStateOption] = useState('State')
   const [cityOption, setCityOption] = useState('City')
-  // data for context api
+  // data to pass it to the parent
   const [filteredData, setFilteredData] = useState([])
   // raw data
   const [rawData, setRawData] = useState([])
@@ -17,6 +17,11 @@ export default function Filter({ data }) {
     setFilteredData(data)
     setRawData(data)
   }, [data])
+
+  // pass filitered data to the parent whenever it changed
+  useEffect(() => {
+    filteredDataCallback(filteredData)
+  }, [filteredData])
 
   // if user choose any of option run filteroptions method
   useEffect(() => {

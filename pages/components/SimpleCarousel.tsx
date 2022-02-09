@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function SimpleCarousel({ productName }) {
+export default function SimpleCarousel({ productName, products }) {
   const settings = {
     dots: false,
     infinite: false,
@@ -14,16 +14,25 @@ export default function SimpleCarousel({ productName }) {
   }
   return (
     <>
-      <h2 className="mt-8 text-2xl text-gray-200">Product Name</h2>
+      <h2 className="mt-8 text-2xl text-gray-200">{productName}</h2>
       <hr className="mt-2 border-gray-200" />
       <div className="mt-4 rounded-2xl bg-edvora-dark-gray">
         <Slider {...settings}>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products &&
+            products.map(
+              ({ product_name, discription, image, price, date, address }) => {
+                return (
+                  <ProductCard
+                    productName={product_name}
+                    description={discription}
+                    image={image}
+                    price={price}
+                    date={date}
+                    address={address}
+                  />
+                )
+              }
+            )}
         </Slider>
       </div>
     </>
