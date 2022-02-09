@@ -5,7 +5,7 @@ export default function ProductCard({
   image,
   price,
   date,
-  address,
+  addressState,
   brandName,
 }) {
   return (
@@ -28,7 +28,7 @@ export default function ProductCard({
           </div>
           <div className="flex flex-row mt-2">
             <h3 className="block text-xs text-edvora-light-gray">
-              {address['state']}
+              {addressState !== undefined && addressState}
             </h3>
             <h3 className="block ml-4 text-xs text-edvora-light-gray">
               Date:{new Date(date).toLocaleDateString()}
