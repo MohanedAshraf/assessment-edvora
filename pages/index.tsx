@@ -13,12 +13,6 @@ export default function Home() {
       .then((data) => setData(data))
   }, [])
 
-  const getFilterItems = (level, key) => {
-    let elements
-    if (level === 1) elements = data.map((product) => product[key])
-    if (level === 2) elements = data.map(({ address }) => address[key])
-    return [...new Set(elements)]
-  }
   return (
     <>
       <Head>
@@ -29,11 +23,7 @@ export default function Home() {
         <div className="container h-max font-body">
           <div className="flex flex-row pt-10">
             <div className="items-start mr-10 basis-1/4">
-              <Filter
-                products={getFilterItems(1, 'product_name')}
-                state={getFilterItems(2, 'state')}
-                city={getFilterItems(2, 'city')}
-              />
+              <Filter data={data} />
             </div>
             <div className="w-full h-full">
               <h1 className="text-5xl font-bold text-gray-200">Edvora</h1>

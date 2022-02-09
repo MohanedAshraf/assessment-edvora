@@ -4,13 +4,19 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-export default function ListBox({ optionName, data, idx }) {
+export default function ListBox({ optionName, data, idx, callback }) {
+  // selected state
   const [selected, setSelected] = useState(optionName)
-  const [choice, setChoice] = useState([])
+  // set of choice that come from data
+  const [choices, setChoices] = useState([])
+  // set choice if data changes
   useEffect(() => {
-    setChoice(data)
+    setChoices(data)
   }, [data])
-
+  // call the callback method if selected changes
+  useEffect(() => {
+    callback(selected)
+  }, [selected])
   return (
     <div className={`inline-block ${idx} relative w-full text-left`}>
       <Listbox value={selected} onChange={setSelected}>
@@ -31,7 +37,7 @@ export default function ListBox({ optionName, data, idx }) {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base rounded-md shadow-lg max-h-60 bg-edvora-gray ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {choice.map((item, itemIdx) => (
+              {choices.map((item, itemIdx) => (
                 <Listbox.Option
                   key={itemIdx}
                   className={({ active }) =>
