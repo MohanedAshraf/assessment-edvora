@@ -3,6 +3,40 @@ import ProductCard from './ProductCard'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { MdArrowForwardIos, MdArrowBackIosNew } from 'react-icons/md'
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <MdArrowForwardIos
+      className={className}
+      style={{
+        ...style,
+
+        color: 'white',
+        width: '30px',
+        height: '30px',
+      }}
+      onClick={onClick}
+    />
+  )
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <MdArrowBackIosNew
+      className={className}
+      style={{
+        ...style,
+        color: 'white',
+        width: '30px',
+        height: '30px',
+      }}
+      onClick={onClick}
+    />
+  )
+}
 
 export default function SimpleCarousel({ productName, products }) {
   const settings = {
@@ -11,6 +45,8 @@ export default function SimpleCarousel({ productName, products }) {
     speed: 200,
     slidesToShow: 4,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   }
   return (
     <>
