@@ -39,10 +39,14 @@ function SamplePrevArrow(props) {
   )
 }
 
-export default function SimpleCarousel({ productName, products }) {
+export default function SimpleCarousel({
+  productName,
+  products,
+  productsLength,
+}) {
   const settings = {
     dots: false,
-    infinite: products.length > 3,
+    infinite: productsLength > 3,
     speed: 200,
     slidesToShow: 4,
     slidesToScroll: 1,

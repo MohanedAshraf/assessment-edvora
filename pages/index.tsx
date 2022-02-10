@@ -67,6 +67,7 @@ export default function Home() {
                         key={productArr[0]['product_name']}
                         productName={productArr[0]['product_name']}
                         products={productArr}
+                        productsLength={productArr.length}
                       />
                     )
                   })}
