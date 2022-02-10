@@ -32,6 +32,7 @@ function SamplePrevArrow(props) {
         color: 'white',
         width: '30px',
         height: '30px',
+        display: 'none',
       }}
       onClick={onClick}
     />
@@ -41,9 +42,9 @@ function SamplePrevArrow(props) {
 export default function SimpleCarousel({ productName, products }) {
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 200,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
