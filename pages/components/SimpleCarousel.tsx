@@ -74,34 +74,36 @@ export default function SimpleCarousel({ productName, products }) {
       <h2 className="mt-8 text-lg text-gray-200 xl:text-2xl">{productName}</h2>
       <hr className="mt-1 border-gray-400" />
       <div className="mt-4 rounded-2xl bg-edvora-dark-gray px-5">
-        <Slider {...settings}>
-          {products &&
-            products.map(
-              ({
-                product_name,
-                discription,
-                image,
-                price,
-                date,
-                address: { state, city },
-                brand_name,
-              }) => {
-                return (
-                  <ProductCard
-                    key={date}
-                    productName={product_name}
-                    description={discription}
-                    image={image}
-                    price={price}
-                    date={date}
-                    addressState={state}
-                    addressCity={city}
-                    brandName={brand_name}
-                  />
-                )
-              }
-            )}
-        </Slider>
+        {products && (
+          <Slider {...settings}>
+            {products &&
+              products.map(
+                ({
+                  product_name,
+                  discription,
+                  image,
+                  price,
+                  date,
+                  address: { state, city },
+                  brand_name,
+                }) => {
+                  return (
+                    <ProductCard
+                      key={date}
+                      productName={product_name}
+                      description={discription}
+                      image={image}
+                      price={price}
+                      date={date}
+                      addressState={state}
+                      addressCity={city}
+                      brandName={brand_name}
+                    />
+                  )
+                }
+              )}
+          </Slider>
+        )}
       </div>
     </>
   )
