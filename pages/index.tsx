@@ -46,18 +46,20 @@ export default function Home() {
         <title>Edvora</title>
       </Head>
 
-      <div className="min-h-screen bg-edvora-gray">
+      <div className="min-h-screen w-auto overflow-auto bg-edvora-gray">
         <div className="container h-max font-body">
-          <div className="flex flex-row pt-10">
-            <div className="items-start mr-10 basis-1/4">
+          <div className="flex flex-col pt-10 xl:flex-row">
+            <div className="mr-10 flex w-screen justify-center xl:w-72">
               <Filter data={data} filteredDataCallback={filteredDataCallback} />
             </div>
-            <div className="w-full h-full">
-              <h1 className="text-5xl font-bold text-gray-200">Edvora</h1>
-              <h2 className="mt-8 text-2xl font-semibold text-edvora-light-gray">
+            <div className="h-full w-full p-4 xl:p-0">
+              <h1 className="mt-7 text-3xl font-bold text-gray-200 xl:mt-0 xl:text-5xl">
+                Edvora
+              </h1>
+              <h2 className="mt-8 text-xl font-semibold text-edvora-light-gray xl:text-2xl">
                 Products
               </h2>
-              <div className="w-10/12">
+              <div className="min-w-screen xl:w-10/12">
                 {productsArrs &&
                   productsArrs.map((productArr) => {
                     return (

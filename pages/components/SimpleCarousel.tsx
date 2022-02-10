@@ -42,18 +42,38 @@ function SamplePrevArrow(props) {
 export default function SimpleCarousel({ productName, products }) {
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: products.length > 3,
     speed: 200,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 762,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
   return (
     <>
-      <h2 className="mt-8 text-2xl text-gray-200">{productName}</h2>
-      <hr className="mt-1 border-gray-300" />
-      <div className="mt-4 rounded-2xl bg-edvora-dark-gray">
+      <h2 className="mt-8 text-lg text-gray-200 xl:text-2xl">{productName}</h2>
+      <hr className="mt-1 border-gray-400" />
+      <div className="mt-4 rounded-2xl bg-edvora-dark-gray px-5">
         <Slider {...settings}>
           {products &&
             products.map(
@@ -68,12 +88,14 @@ export default function SimpleCarousel({ productName, products }) {
               }) => {
                 return (
                   <ProductCard
+                    key={date}
                     productName={product_name}
                     description={discription}
                     image={image}
                     price={price}
                     date={date}
                     addressState={state}
+                    addressCity={city}
                     brandName={brand_name}
                   />
                 )
