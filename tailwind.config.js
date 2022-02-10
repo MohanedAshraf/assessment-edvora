@@ -12,7 +12,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      body: ['SF Pro Display'],
+      body: ['SF Pro Display', 'Inter'],
     },
   },
   plugins: [

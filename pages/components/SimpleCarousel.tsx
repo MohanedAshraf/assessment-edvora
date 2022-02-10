@@ -44,7 +44,7 @@ export default function SimpleCarousel({ productName, products }) {
     dots: false,
     infinite: true,
     speed: 200,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
